@@ -31,8 +31,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class EmailPasswordActivity extends BaseActivity implements
-        View.OnClickListener {
+public class EmailPasswordActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "EmailPassword";
 
@@ -40,18 +39,13 @@ public class EmailPasswordActivity extends BaseActivity implements
     private TextView mDetailTextView;
     private EditText mEmailField;
     private EditText mPasswordField;
-
-    // [START declare_auth]
     private FirebaseAuth mAuth;
-    // [END declare_auth]
-
-    // [START declare_auth_listener]
     private FirebaseAuth.AuthStateListener mAuthListener;
-    // [END declare_auth_listener]
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_emailpassword);
 
         // Views
@@ -89,23 +83,21 @@ public class EmailPasswordActivity extends BaseActivity implements
         // [END auth_state_listener]
     }
 
-    // [START on_start_add_listener]
     @Override
     public void onStart() {
         super.onStart();
+
         mAuth.addAuthStateListener(mAuthListener);
     }
-    // [END on_start_add_listener]
 
-    // [START on_stop_remove_listener]
     @Override
     public void onStop() {
         super.onStop();
+
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
-    // [END on_stop_remove_listener]
 
     private void createAccount(String email, String password) {
         Log.d(TAG, "createAccount:" + email);
@@ -126,9 +118,10 @@ public class EmailPasswordActivity extends BaseActivity implements
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            Toast.makeText(EmailPasswordActivity.this, R.string.auth_failed,
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EmailPasswordActivity.this, R.string.auth_failed, Toast.LENGTH_LONG).show();
                         }
+                        else
+                            Toast.makeText(EmailPasswordActivity.this, R.string.auth_passed, Toast.LENGTH_LONG).show();
 
                         // [START_EXCLUDE]
                         hideProgressDialog();
