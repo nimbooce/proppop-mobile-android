@@ -1,4 +1,4 @@
-package android.proppop.com.proppop;
+package android.proppop.com.android;
 
 import org.junit.Test;
 

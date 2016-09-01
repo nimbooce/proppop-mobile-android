@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "1029751390136",
+    "firebase_url": "https://proppop-7f57f.firebaseio.com",
+    "project_id": "proppop-7f57f",
+    "storage_bucket": "proppop-7f57f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029751390136:android:b4d071f811a2e9f0",
+        "android_client_info": {
+          "package_name": "com.proppop.mobile.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029751390136-20u71o57mm9gdqml6mi38ale5n4tkg93.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proppop.mobile.android",
+            "certificate_hash": "A3FA75761B91A4392D07D9E3712D163F18F20F88"
+          }
+        },
+        {
+          "client_id": "1029751390136-qpm52m704ku37aev198kisqq45u0kjhj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-eELwNCaPfUCWpwO67iQkNrlxHYUcAAc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

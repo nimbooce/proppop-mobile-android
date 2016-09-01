@@ -1,4 +1,4 @@
-package android.proppop.com.proppop;
+package android.proppop.com.android;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
