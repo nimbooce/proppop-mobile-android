@@ -98,6 +98,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void showLongToast(String toastMessage) {
-        Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
+        Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
     }
 }
