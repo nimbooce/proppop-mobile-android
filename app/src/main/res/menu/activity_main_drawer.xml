@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_signin"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Pay rent" />
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="@string/action_signin" />
+
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Maintenance" />
+            android:id="@+id/nav_pay_rent"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="Pay Rent" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Documents" />
+            android:id="@+id/nav_repairs"
+            android:icon="@drawable/ic_build_black_24dp"
+            android:title="Repairs" />
+
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
+            android:id="@+id/nav_apply"
+            android:icon="@drawable/ic_thumb_up_black_24dp"
+            android:title="Apply" />
+
+        <item
+            android:id="@+id/nav_lease_documents"
+            android:icon="@drawable/ic_folder_open_black_24dp"
+            android:title="Lease Documents" />
+
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Logout" />
         </menu>

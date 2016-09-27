@@ -34,34 +34,6 @@ import com.google.firebase.auth.FirebaseUser;
  */
 
 public class ApplicationActivity extends Activity {
-    public static class BaseActivity extends AppCompatActivity {
-
-        @VisibleForTesting
-        public ProgressDialog mProgressDialog;
-
-        public void showProgressDialog() {
-            if (mProgressDialog == null) {
-                mProgressDialog = new ProgressDialog(this);
-                mProgressDialog.setMessage("Loading....");
-                mProgressDialog.setIndeterminate(true);
-            }
-
-            mProgressDialog.show();
-        }
-
-        public void hideProgressDialog() {
-            if (mProgressDialog != null && mProgressDialog.isShowing()) {
-                mProgressDialog.dismiss();
-            }
-        }
-
-        @Override
-        public void onStop() {
-            super.onStop();
-            hideProgressDialog();
-        }
-
-    }
 
     public static class EmailPasswordActivity extends BaseActivity implements View.OnClickListener {
 
@@ -263,91 +235,119 @@ public class ApplicationActivity extends Activity {
         }
     }
 
-    public static class MainActivity extends AppCompatActivity
-            implements NavigationView.OnNavigationItemSelectedListener {
+//    public static class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+//
+//        @Override
+//        protected void onCreate(Bundle savedInstanceState) {
+//            super.onCreate(savedInstanceState);
+//            setContentView(R.layout.activity_main);
+//            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//            setSupportActionBar(toolbar);
+//
+//            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//            fab.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+//                }
+//            });
+//
+//            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//            drawer.setDrawerListener(toggle);
+//            toggle.syncState();
+//
+//            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//            navigationView.setNavigationItemSelectedListener(this);
+//        }
+//
+//        @Override
+//        public void onBackPressed() {
+//            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//            if (drawer.isDrawerOpen(GravityCompat.START)) {
+//                drawer.closeDrawer(GravityCompat.START);
+//            } else {
+//                super.onBackPressed();
+//            }
+//        }
+//
+//        @Override
+//        public boolean onCreateOptionsMenu(Menu menu) {
+//            // Inflate the menu; this adds items to the action bar if it is present.
+//            getMenuInflater().inflate(R.menu.main, menu);
+//            return true;
+//        }
+//
+//        @Override
+//        public boolean onOptionsItemSelected(MenuItem item) {
+//            // Handle action bar item clicks here. The action bar will
+//            // automatically handle clicks on the Home/Up button, so long
+//            // as you specify a parent activity in AndroidManifest.xml.
+//            int id = item.getItemId();
+//
+//            //noinspection SimplifiableIfStatement
+//            if (id == R.id.action_settings) {
+//                return true;
+//            }
+//
+//            return super.onOptionsItemSelected(item);
+//        }
+//
+//        @Override
+//        public boolean onNavigationItemSelected(MenuItem item) {
+//            // Handle navigation view item clicks here.
+//            int id = item.getItemId();
+//            if (id == R.id.nav_signin) {
+//                Intent signInIntent = new Intent(this, EmailPasswordActivity.class);
+//                startActivity(signInIntent);
+//                System.out.println("-------------------------------signing in nnnnnnnn");
+//                showLongToast("camera not implemented yet");
+//            } else if (id == R.id.nav_repairs) {
+//                showLongToast("gallery not implemented yet");
+//            } else if (id == R.id.nav_lease_documents) {
+//                showLongToast("slide show not implemented yet");
+//            } else if (id == R.id.nav_pay_rent) {
+//                showLongToast("manage not implemented yet");
+//            } else if (id == R.id.nav_logout) {
+//                showLongToast("send not implemented yet");
+//            }
+//
+//            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//            drawer.closeDrawer(GravityCompat.START);
+//            return true;
+//        }
+//
+//        private void showLongToast(String toastMessage) {
+//            Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
+//        }
+//    }
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
+    public static class BaseActivity extends AppCompatActivity {
 
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                }
-            });
+        @VisibleForTesting
+        public ProgressDialog mProgressDialog;
 
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-            drawer.setDrawerListener(toggle);
-            toggle.syncState();
+        public void showProgressDialog() {
+            if (mProgressDialog == null) {
+                mProgressDialog = new ProgressDialog(this);
+                mProgressDialog.setMessage("Loading....");
+                mProgressDialog.setIndeterminate(true);
+            }
 
-            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-            navigationView.setNavigationItemSelectedListener(this);
+            mProgressDialog.show();
         }
 
-        @Override
-        public void onBackPressed() {
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            if (drawer.isDrawerOpen(GravityCompat.START)) {
-                drawer.closeDrawer(GravityCompat.START);
-            } else {
-                super.onBackPressed();
+        public void hideProgressDialog() {
+            if (mProgressDialog != null && mProgressDialog.isShowing()) {
+                mProgressDialog.dismiss();
             }
         }
 
         @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            // Inflate the menu; this adds items to the action bar if it is present.
-            getMenuInflater().inflate(R.menu.main, menu);
-            return true;
+        public void onStop() {
+            super.onStop();
+            hideProgressDialog();
         }
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
-            int id = item.getItemId();
-
-            //noinspection SimplifiableIfStatement
-            if (id == R.id.action_settings) {
-                return true;
-            }
-
-            return super.onOptionsItemSelected(item);
-        }
-
-        @Override
-        public boolean onNavigationItemSelected(MenuItem item) {
-            // Handle navigation view item clicks here.
-            int id = item.getItemId();
-            if (id == R.id.nav_signin) {
-                Intent signInIntent = new Intent(this, EmailPasswordActivity.class);
-                startActivity(signInIntent);
-                System.out.println("-------------------------------signing in nnnnnnnn");
-                showLongToast("camera not implemented yet");
-            } else if (id == R.id.nav_gallery) {
-                showLongToast("gallery not implemented yet");
-            } else if (id == R.id.nav_slideshow) {
-                showLongToast("slide show not implemented yet");
-            } else if (id == R.id.nav_manage) {
-                showLongToast("manage not implemented yet");
-            } else if (id == R.id.nav_send) {
-                showLongToast("send not implemented yet");
-            }
-
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
-        }
-
-        private void showLongToast(String toastMessage) {
-            Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
-        }
     }
 }
